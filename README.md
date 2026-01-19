@@ -4,9 +4,11 @@ Acest proiect reprezinta o lucrare de licenta ce vizeaza dezvoltarea unui sistem
 Obiectivul principal a fost depasirea limitarilor platformelor educationale prin crearea unui robot, capabil de procesare de imagine in timp real si analiza a datelor senzoriale.
 
 Interfata robot : 
+
 <img width="447" height="881" alt="image" src="https://github.com/user-attachments/assets/9e93a5ab-4d47-4229-bf7d-5a69d5ee19c5" />
 
 Meniu principal :
+
 <img width="448" height="862" alt="image" src="https://github.com/user-attachments/assets/6f6a6d63-c664-486d-84c0-7e7f2e98bea2" />
 
 Interfata control robot:
