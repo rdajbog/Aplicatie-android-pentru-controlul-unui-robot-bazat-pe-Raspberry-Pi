@@ -30,6 +30,7 @@ Senzor gaz – MQ-9 (conectat la Arduino, valori trimise catre Raspberry Pi)
 
 Interfata locala – Ecran OLED 1.3" cu expresii animate
             Ecran OLED montat pe robot care simuleaza expresii faciale (clipeste, priveste stanga/dreapta) in functie de actiuni.
+            
 <img width="494" height="659" alt="image" src="https://github.com/user-attachments/assets/0fa1905d-1133-4834-abff-80bf6f874f96" />
 
 Comunicare – Server Flask pe Raspberry Pi + aplicatie Android (HTTP/WebSocket)
@@ -38,6 +39,7 @@ Aplicatie android – dezvoltata in Android Studio (Java/Kotlin)
 Decizii de proiectare
 De ce Raspberry Pi 4 + Arduino in loc de ESP32-CAM?
 Initial, proiectul a fost conceput pe baza unui ESP32-CAM. Totusi, in timpul dezvoltarii, au fost identificate limitari critice care au dus la o refactorizare majora a arhitecturii.
+
 <img width="990" height="994" alt="image" src="https://github.com/user-attachments/assets/96b3c10b-e3d3-4f05-a553-f6b5f23b1cbc" />
 <img width="1199" height="693" alt="image" src="https://github.com/user-attachments/assets/38b61cbd-18be-40be-8717-a9b391363af5" />
 Calitatea camerei ESP32-CAM:
