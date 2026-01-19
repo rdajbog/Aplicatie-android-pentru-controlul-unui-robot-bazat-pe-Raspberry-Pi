@@ -19,6 +19,7 @@ Implementare: Trimite comanda "inainte" către Arduino, care ajustează PWM pent
 Monitorizarea ambientală prin Senzor MQ-9 ( cel de gaz)
 Indicator "Date Gaz" :
 Afișează valorile PPM în timp real (actualizat la 2 secunde). Endpoint: /gas_data. Implementare: Categorii "sigur" (<100 PPM), "avertizare" (100-300), "pericol" (>300), cu notificări push pentru alerte.
+
 <img width="433" height="874" alt="image" src="https://github.com/user-attachments/assets/41c1ead4-6bb5-43dd-8039-03fd74e58e9d" />
 
 2.Procesare imagine si flux video
@@ -29,11 +30,13 @@ Buton "Mod RGB" (implicit:
 Afișează imaginea în culori naturale. Endpoint: /seteaza_mod?mode=rgb.
 Buton "Mod Alb/Negru":
 Convertește la grayscale folosind formula ITU-R BT.709. Endpoint: /seteaza_mod?mode=alb_negru. Implementare: cv2.cvtColor pentru tonuri de gri. ( Util pentru condiții de lumină slabă.)
+
 <img width="284" height="498" alt="image" src="https://github.com/user-attachments/assets/de7c2d60-59e6-4dcc-9620-2013daea5891" />
 
 3.Control prin Gesturi
 butonul switch care activeaza "Recunoaștere Gesturi":
-Activează/dezactivează modul gesturi. Endpoint: /activeaza_mod_gest sau /dezactiveaza_mod_gest. Implementare: Folosește MediaPipe pentru detectarea mâinilor. Gesturi recunoscute: Două degete (înainte), pumn (înapoi), un deget (stânga/dreapta), palmă (oprire)
+Activează/dezactivează modul gesturi. Endpoint: /activeaza_mod_gest sau /dezactiveaza_mod_gest. Implementare: Folosește MediaPipe pentru detectarea mâinilor. Gesturi recunoscute: Două degete (înainte), pumn (înapoi), un deget (stânga/dreapta), palmă (oprire).
+
 <img width="426" height="867" alt="image" src="https://github.com/user-attachments/assets/f253f620-a829-4da2-9e7a-cf2c895c1952" />
 
 4.Control prin comenzi vocale
@@ -41,6 +44,7 @@ Butonul "Control Vocal":
 Deschide dialogul vocal. Implementare: Deschide un dialog cu buton microfon.
 Buton "Microfon" (Activare Ascultare):
 Pornește recunoașterea vocală. Implementare: SpeechRecognizer în română ("ro-RO"), cu comenzi precum "înainte", "stânga", "oprește". Mapate la endpoint-uri similare controlului de la butonul 1.
+
 <img width="424" height="863" alt="image" src="https://github.com/user-attachments/assets/7d8fc762-2217-49a2-a88b-2a66329d2c09" />
 
 5.Funcționalități speciale (captură și transmitere)
@@ -51,6 +55,7 @@ Feedback: Mesaj "Fotografie capturată și salvată".
 Buton "Înregistrează Video" (Start/Stop):
 Pornește/oprește înregistrarea. Endpoint: /porneste_inregistrare și /opreste_inregistrare. 
 Implementare: Salvează MP4 local; Feedback: Mesaj "Înregistrare pornită/oprită".
+
 <img width="423" height="864" alt="image" src="https://github.com/user-attachments/assets/2039254e-bd06-4757-8c05-829a1df78f6a" />
 
 
