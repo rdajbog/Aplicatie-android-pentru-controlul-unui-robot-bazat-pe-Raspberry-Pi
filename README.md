@@ -3,6 +3,57 @@
 Acest proiect reprezinta o lucrare de licenta ce vizeaza dezvoltarea unui sistem robotizat mobil, multifunctional, capabil sa efectueze monitorizarea calitatii aerului si supraveghere video inteligenta. Sistemul integreaza o arhitectura hibrida (Raspberry Pi 4B + Arduino Uno) si este controlat printr-o aplicatie Android, oferind interactiune multimodala: tactila, vocala si prin gesturi. 
 Obiectivul principal a fost depasirea limitarilor platformelor educationale prin crearea unui robot, capabil de procesare de imagine in timp real si analiza a datelor senzoriale.
 
+Interfata robot : 
+<img width="447" height="881" alt="image" src="https://github.com/user-attachments/assets/9e93a5ab-4d47-4229-bf7d-5a69d5ee19c5" />
+
+Meniu principal :
+<img width="448" height="862" alt="image" src="https://github.com/user-attachments/assets/6f6a6d63-c664-486d-84c0-7e7f2e98bea2" />
+
+Interfata control robot:
+
+
+1.Controlul mișcării robotului:
+Această sectiune include butoane dedicate controlului direct al propulsiei robotului prin Arduino Uno (via Raspberry Pi). Butoanele sunt aranjate in butoane direcționale. Fiecare buton trimite o cerere HTTP către serverul Flask, care o redirecționează către Arduino prin comunicație serială UART.
+ex: Buton "Înainte" : Activeaza mișcarea înainte a robotului prin cele 4 motoare DC. Endpoint asociat: /misca_inainte. 
+Implementare: Trimite comanda "inainte" către Arduino, care ajustează PWM pentru motoare.
+Monitorizarea ambientală prin Senzor MQ-9 ( cel de gaz)
+Indicator "Date Gaz" :
+Afișează valorile PPM în timp real (actualizat la 2 secunde). Endpoint: /gas_data. Implementare: Categorii "sigur" (<100 PPM), "avertizare" (100-300), "pericol" (>300), cu notificări push pentru alerte.
+<img width="433" height="874" alt="image" src="https://github.com/user-attachments/assets/41c1ead4-6bb5-43dd-8039-03fd74e58e9d" />
+
+2.Procesare imagine si flux video
+Interfața include un viewer pentru fluxul live de la Camera Module v3, cu butoane pentru selectarea modurilor de procesare (folosind OpenCV pe Raspberry Pi).
+ex: Buton "Flux Cameră":
+Deschide dialogul pentru vizualizarea fluxului video în timp real. Implementare: Încarcă URL-ul /flux_camera într-un WebView, cu reîmprospătare la 5 secunde pentru continuitate. Fluxul este optimizat la 30 FPS, cu bufferizare pentru latență minimă. Feedback: Afișare live a imaginii procesate.
+Buton "Mod RGB" (implicit:
+Afișează imaginea în culori naturale. Endpoint: /seteaza_mod?mode=rgb.
+Buton "Mod Alb/Negru":
+Convertește la grayscale folosind formula ITU-R BT.709. Endpoint: /seteaza_mod?mode=alb_negru. Implementare: cv2.cvtColor pentru tonuri de gri. ( Util pentru condiții de lumină slabă.)
+<img width="284" height="498" alt="image" src="https://github.com/user-attachments/assets/de7c2d60-59e6-4dcc-9620-2013daea5891" />
+
+3.Control prin Gesturi
+butonul switch care activeaza "Recunoaștere Gesturi":
+Activează/dezactivează modul gesturi. Endpoint: /activeaza_mod_gest sau /dezactiveaza_mod_gest. Implementare: Folosește MediaPipe pentru detectarea mâinilor. Gesturi recunoscute: Două degete (înainte), pumn (înapoi), un deget (stânga/dreapta), palmă (oprire)
+<img width="426" height="867" alt="image" src="https://github.com/user-attachments/assets/f253f620-a829-4da2-9e7a-cf2c895c1952" />
+
+4.Control prin comenzi vocale
+Butonul "Control Vocal":
+Deschide dialogul vocal. Implementare: Deschide un dialog cu buton microfon.
+Buton "Microfon" (Activare Ascultare):
+Pornește recunoașterea vocală. Implementare: SpeechRecognizer în română ("ro-RO"), cu comenzi precum "înainte", "stânga", "oprește". Mapate la endpoint-uri similare controlului de la butonul 1.
+<img width="424" height="863" alt="image" src="https://github.com/user-attachments/assets/7d8fc762-2217-49a2-a88b-2a66329d2c09" />
+
+5.Funcționalități speciale (captură și transmitere)
+Buton "captură fotografie":
+Capturează o imagine. Endpoint: /captureaza_fotografie. 
+Implementare: Salvează JPEG local pe telefon și pe Raspberry Pi; apoi ai opțiunea de trimitere aceea fotografie prin email via SMTP/JavaMail. 
+Feedback: Mesaj "Fotografie capturată și salvată".
+Buton "Înregistrează Video" (Start/Stop):
+Pornește/oprește înregistrarea. Endpoint: /porneste_inregistrare și /opreste_inregistrare. 
+Implementare: Salvează MP4 local; Feedback: Mesaj "Înregistrare pornită/oprită".
+<img width="423" height="864" alt="image" src="https://github.com/user-attachments/assets/2039254e-bd06-4757-8c05-829a1df78f6a" />
+
+
 Arhitectura:
 Unitate centrala de procesare – Raspberry Pi 4B (procesare imagine + server Flask) :
             Functioneaza ca "creierul" robotului.
