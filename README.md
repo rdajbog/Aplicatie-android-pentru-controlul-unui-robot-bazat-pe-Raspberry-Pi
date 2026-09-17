@@ -1,7 +1,7 @@
 Aplicatie android pentru controlul unui robot bazat pe Raspberry Pi4
 
 Acest proiect reprezinta o lucrare de licenta ce vizeaza dezvoltarea unui sistem robotizat mobil, multifunctional, capabil sa efectueze monitorizarea calitatii aerului si supraveghere video inteligenta. Sistemul integreaza o arhitectura hibrida (Raspberry Pi 4B + Arduino Uno) si este controlat printr-o aplicatie Android, oferind interactiune multimodala: tactila, vocala si prin gesturi. 
-Obiectivul principal a fost depasirea limitarilor platformelor educationale prin crearea unui robot, capabil de procesare de imagine in timp real si analiza a datelor senzoriale.
+Obiectivul principal a fost depasirea limitarilor platformelor educationale prin crearea unui robot, capabil de procesare de imagine in timp real si analiza a datelor.
 
 Interfata robot : 
 
@@ -109,7 +109,7 @@ Calitatea camerei ESP32-CAM:
 
 Aplicatia Android
 Interfata utilizator a fost dezvoltata folosind Material Design din Androidstudio.
-            streaming: webView optimizat pentru latenta minima (<300ms).
+            streaming: webView optimizat pentru latenta (<300ms).
             comunicare: cereri HTTP către serverul Flask.
             securitate: autentificare pentru accesul la comenzile robotului.
 
