@@ -1,4 +1,4 @@
- Aplicatie android pentru controlul unui robot bazat pe Raspberry Pi4
+Aplicatie android pentru controlul unui robot bazat pe Raspberry Pi4
 
 Acest proiect reprezinta o lucrare de licenta ce vizeaza dezvoltarea unui sistem robotizat mobil, multifunctional, capabil sa efectueze monitorizarea calitatii aerului si supraveghere video inteligenta. Sistemul integreaza o arhitectura hibrida (Raspberry Pi 4B + Arduino Uno) si este controlat printr-o aplicatie Android, oferind interactiune multimodala: tactila, vocala si prin gesturi. 
 Obiectivul principal a fost depasirea limitarilor platformelor educationale prin crearea unui robot, capabil de procesare de imagine in timp real si analiza a datelor senzoriale.
@@ -44,7 +44,7 @@ Activează/dezactivează modul gesturi. Endpoint: /activeaza_mod_gest sau /dezac
 4.Control prin comenzi vocale
 Butonul "Control Vocal":
 Deschide dialogul vocal. Implementare: Deschide un dialog cu buton microfon.
-Buton "Microfon" (Activare Ascultare):
+Buton "Microfon":
 Pornește recunoașterea vocală. Implementare: SpeechRecognizer în română ("ro-RO"), cu comenzi precum "înainte", "stânga", "oprește". Mapate la endpoint-uri similare controlului de la butonul 1.
 
 <img width="424" height="863" alt="image" src="https://github.com/user-attachments/assets/7d8fc762-2217-49a2-a88b-2a66329d2c09" />
@@ -96,7 +96,7 @@ Aplicatie android – dezvoltata in Android Studio (Java/Kotlin)
 
 Decizii de proiectare
 De ce Raspberry Pi 4 + Arduino in loc de ESP32-CAM?
-Initial, proiectul a fost conceput pe baza unui ESP32-CAM. Totusi, in timpul dezvoltarii, au fost identificate limitari critice care au dus la o refactorizare majora a arhitecturii.
+Initial, proiectul a fost conceput pe baza unui ESP32-CAM. Totusi, in timpul dezvoltarii, au fost identificate limitari care au dus la o refacere a arhitecturii.
 
 <img width="990" height="994" alt="image" src="https://github.com/user-attachments/assets/96b3c10b-e3d3-4f05-a553-f6b5f23b1cbc" />
 <img width="1199" height="693" alt="image" src="https://github.com/user-attachments/assets/38b61cbd-18be-40be-8717-a9b391363af5" />
@@ -121,8 +121,8 @@ Pentru a pune sistemul in functiune, se vor urmarii acesti pasi in ordine
             Asigura-te ca Arduino Uno este alimentat (la bateriile Li-Po).
             Asteapta 30-60 de secunde pentru ca sistemul de operare (Raspberry Pi OS) sa porneasca complet.
             
-2.Pornirea Serverului
-Acceseaza terminalul Raspberry Pi (direct sau prin SSH) si ruleaza scriptul principal al serverului. Acesta va initializa camera, comunicarea cu Arduino si va deschide portul pentru conexiune
+2.Pornirea serverului
+acceseaza terminalul Raspberry Pi (direct sau prin SSH) si ruleaza scriptul principal al serverului. Acesta va initializa camera, comunicarea cu Arduino si va deschide portul pentru conexiune
 Dupa rulare, scriptul va genera si afisa in terminal Adresa IP locala a robotului (ex: 192.168.1.X)
 
 3.Conectarea clientului:
@@ -130,7 +130,7 @@ Acum ca serverul ruleaza si asteapta conexiuni:
 
 Deschide proiectul in Android Studio (sau instaleaza aplicatia pe telefon).
             Lanseaza aplicatia.
-            Mergi la meniul de Setari Conexiune.
-            Introdu Adresa IP generata anterior de Raspberry Pi si Portul 5000.
-            Apasa Conectare.
+            Mergi la meniul de setari conexiune.
+            Introdu Adresa IP generata anterior de Rpi Pi si Portul 5000.
+            -Apasa conectare.
 Daca totul este configurat corect, vei primi mesajul "Conectat cu succes" si vei vedea fluxul video de la camera.
